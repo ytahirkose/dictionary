@@ -1,0 +1,52 @@
+<h3 class="nav-item" class="text-secondary">Add New Word</h3>
+
+<form class="e-form" [formGroup]="wordAddForm" (ngSubmit)="add()">
+
+  <mat-form-field class="e-full-width">
+    <mat-label>Id</mat-label>
+    <input id="id" name="id" matInput #message maxlength="256" formControlName="id" placeholder="Id">
+    <mat-hint align="start">Enter the word's id.</mat-hint>
+    <mat-hint align="end">{{message.value.length}} / 020</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="e-full-width">
+    <mat-label>Name</mat-label>
+    <input id="name" name="name" matInput #message maxlength="256" formControlName="name" placeholder="Name">
+    <mat-hint align="start">Enter the word's name.</mat-hint>
+    <mat-hint align="end">{{message.value.length}} / 020</mat-hint>
+  </mat-form-field>
+
+
+  <mat-form-field class="e-full-width">
+    <mat-label>Description</mat-label>
+    <input id="description" name="description" matInput #message maxlength="256" formControlName="description"
+           placeholder="Description">
+    <mat-hint align="start">Enter the word's description.</mat-hint>
+    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="e-full-width">
+    <mat-label>Date</mat-label>
+    <input id="date" name="date" matInput #message maxlength="256" formControlName="date" placeholder="Date">
+    <mat-hint align="start">Enter the date.</mat-hint>
+    <mat-hint align="end">{{message.value.length}} / 10</mat-hint>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select an option</mat-label>
+    <mat-select formControlName="category" disableRipple>
+      <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <section>
+    <div class="example-button-row">
+      <button type="submit" mat-raised-button>Add Word</button>
+    </div>
+  </section>
+
+
+</form>
+
